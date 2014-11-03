@@ -19,8 +19,8 @@ module.exports = {
     dest: dest
   },
   images: {
-    src: src + "/images/**",
-    dest: dest + "/images"
+    src: src + "/assets/images/**",
+    dest: dest + "/assets/images"
   },
   markup: {
     src: src + "/htdocs/**",
