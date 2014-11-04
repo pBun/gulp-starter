@@ -11,6 +11,8 @@ gulp.task('sass', ['images'], function () {
       sourcemap: true,
       sourcemapPath: '../sass'
     }))
+    .pipe(autoprefixer(config.autoprefixer))
+    .pipe(gulpif(global.isProduction, minifycss()))
     .on('error', handleErrors)
     .pipe(gulp.dest(config.dest));
 });

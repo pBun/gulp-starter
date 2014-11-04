@@ -4,6 +4,10 @@ var src = './src';
 module.exports = {
   dest: dest,
   src: src,
+  autoprefixer: {
+    browsers: ['last 2 versions'],
+    cascade: false
+  },
   browserSync: {
     server: {
       // We're serving the src folder as well
