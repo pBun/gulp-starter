@@ -18,6 +18,10 @@ module.exports = {
     src: src + "/sass/*.{sass, scss}",
     dest: dest
   },
+  assets: {
+    src: [src + '/assets/**', '!' + src + '/assets/{images,images/**}'],
+    dest: dest + "/assets"
+  },
   images: {
     src: src + "/assets/images/**",
     dest: dest + "/assets/images"
