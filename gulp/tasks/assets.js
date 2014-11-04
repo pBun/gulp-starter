@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var config = require('../config').images;
+var config = require('../config').assets;
 
 gulp.task('assets', function() {
   return gulp.src(config.src)
