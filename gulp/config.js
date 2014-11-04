@@ -2,6 +2,8 @@ var dest = "./build";
 var src = './src';
 
 module.exports = {
+  dest: dest,
+  src: src,
   browserSync: {
     server: {
       // We're serving the src folder as well
