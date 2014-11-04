@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var config = require('../config');
-var cssConfig = config.css
+var cssConfig = config.css;
 
 gulp.task('css', function() {
   return gulp.src(cssConfig.src)
