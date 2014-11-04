@@ -8,9 +8,7 @@ Includes the following tools, tasks, and workflows:
 - [Browserify](http://browserify.org/) (with [browserify-shim](https://github.com/thlorenz/browserify-shim))
 - [Watchify](https://github.com/substack/watchify) (caching version of browserify for super fast rebuilds)
 - [Stylus](http://learnboost.github.io/stylus/) / [SASS](http://sass-lang.com/) + [Compass](http://compass-style.org/) / CSS (with source maps ([sass](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap)), and [auto-prefixer](https://github.com/sindresorhus/gulp-autoprefixer)!)
-- [jQuery](http://jquery.com/) (from npm)
-- [Backbone](http://backbonejs.org/) (from npm)
-- [Handlebars](http://handlebarsjs.com/) (as a backbone dependency)
+- [Angular](http://angular.com/) (from npm)
 - [BrowserSync](http://browsersync.io) for live reloading and a static server
 - Production build task (with minification ([css](https://github.com/jonathanepollack/gulp-minify-css) / [js](https://github.com/terinjokes/gulp-uglify)) and [connect](https://github.com/avevlad/gulp-connect) for easy Heroku/Dokku pushes!)
 - Image optimization

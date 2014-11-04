@@ -10,6 +10,7 @@
 
 var browserify   = require('browserify');
 var watchify     = require('watchify');
+var stringify    = require('stringify');
 var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
 var streamify    = require('gulp-streamify');
@@ -41,6 +42,7 @@ gulp.task('browserify', function(callback) {
       bundleLogger.start(bundleConfig.outputName);
 
       return bundler
+        .transform(stringify())
         .bundle()
         // Report compile errors
         .on('error', handleErrors)
