@@ -12,6 +12,9 @@ var browserify   = require('browserify');
 var watchify     = require('watchify');
 var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
+var streamify    = require('gulp-streamify');
+var gulpif       = require('gulp-if');
+var uglify       = require('gulp-uglify');
 var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
 var config       = require('../config').browserify;
@@ -45,6 +48,8 @@ gulp.task('browserify', function(callback) {
         // stream gulp compatible. Specifiy the
         // desired output filename here.
         .pipe(source(bundleConfig.outputName))
+        // uglify and ng inject if production
+        .pipe(gulpif(global.isProduction, streamify(uglify())))
         // Specify the output destination
         .pipe(gulp.dest(bundleConfig.dest))
         .on('end', reportFinished);
