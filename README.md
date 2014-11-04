@@ -7,12 +7,12 @@ Includes the following tools, tasks, and workflows:
 
 - [Browserify](http://browserify.org/) (with [browserify-shim](https://github.com/thlorenz/browserify-shim))
 - [Watchify](https://github.com/substack/watchify) (caching version of browserify for super fast rebuilds)
-- [SASS](http://sass-lang.com/) (with [compass](http://compass-style.org/) and [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap)!)
-- [CoffeeScript](http://coffeescript.org/) (with source maps!)
+- [Stylus](http://learnboost.github.io/stylus/) / [SASS](http://sass-lang.com/) + [Compass](http://compass-style.org/) / CSS (with source maps ([sass](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap)), and [auto-prefixer](https://github.com/sindresorhus/gulp-autoprefixer)!)
 - [jQuery](http://jquery.com/) (from npm)
 - [Backbone](http://backbonejs.org/) (from npm)
 - [Handlebars](http://handlebarsjs.com/) (as a backbone dependency)
 - [BrowserSync](http://browsersync.io) for live reloading and a static server
+- Production build task (with minification ([css](https://github.com/jonathanepollack/gulp-minify-css) / [js](https://github.com/terinjokes/gulp-uglify)) and [connect](https://github.com/avevlad/gulp-connect) for easy Heroku/Dokku pushes!)
 - Image optimization
 - Error Notifications in Notification Center
 - Non common-js vendor code (like a jQuery plugin)
@@ -81,7 +81,7 @@ This will run the `default` gulp task defined in `gulp/tasks/default.js`, which 
 - Run 'watch', which has 2 task dependencies, `['setWatch', 'browserSync']`
 - `setWatch` sets a variable that tells the browserify task whether or not to use watchify.
 - `browserSync` has `build` as a task dependecy, so that all your assets will be processed before browserSync tries to serve them to you in the browser.
-- `build` includes the following tasks: `['browserify', 'sass', 'images', 'markup']`
+- `build` includes the following tasks: `['browserify', 'stylus', 'images', 'markup']`
 
 ### Configuration
 All paths and plugin settings have been abstracted into a centralized config object in `gulp/config.js`. Adapt the paths and settings to the structure and needs of your project.
