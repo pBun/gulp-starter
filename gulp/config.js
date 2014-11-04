@@ -20,8 +20,16 @@ module.exports = {
       "!" + dest + "/**.map"
     ]
   },
+  css: {
+    src: src + "/styles/*.css",
+    dest: dest
+  },
+  stylus: {
+    src: src + "/styles/*.styl",
+    dest: dest
+  },
   sass: {
-    src: src + "/sass/*.{sass, scss}",
+    src: src + "/styles/*.{sass, scss}",
     dest: dest
   },
   assets: {
