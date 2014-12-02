@@ -1,5 +1,7 @@
 var gulp = require('gulp');
-var sass = require('gulp-ruby-sass');
+var browserSync = require('browser-sync');
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var gulpif = require('gulp-if');
 var minifycss = require('gulp-minify-css');
@@ -7,16 +9,16 @@ var handleErrors = require('../util/handleErrors');
 var config = require('../config');
 var sassConfig = require('../config').sass;
 
-gulp.task('sass', ['images'], function () {
+gulp.task('sass', ['images'], function() {
   return gulp.src(sassConfig.src)
-    .pipe(sass({
-      compass: true,
-      bundleExec: true,
-      sourcemap: true,
-      sourcemapPath: '../styles'
-    }))
+    .pipe(sourcemaps.init())
+    .pipe(sass(sassConfig.settings))
+    .on('error', handleErrors)
+    .pipe(sourcemaps.write())
     .pipe(autoprefixer(config.autoprefixer))
     .pipe(gulpif(global.isProduction, minifycss()))
-    .on('error', handleErrors)
-    .pipe(gulp.dest(sassConfig.dest));
+    .pipe(gulp.dest(sassConfig.dest))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
 });
